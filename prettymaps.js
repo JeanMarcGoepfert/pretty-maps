@@ -1,7 +1,7 @@
 /*
 * prettyMaps 1.0.0
 *
-* Copyright 2014, Jean-Marc Goefpert - http://omgogepfert.com
+* Copyright 2014, Jean-Marc Goepfert - http://omgoepfert.com
 * Released under the WTFPL license - http://www.wtfpl.net/
 *
 * Date: Sun Jan 12 18:00:00 2014 -0500
