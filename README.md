@@ -16,7 +16,7 @@ gives you a map that looks like this.
 ![](http://i.imgur.com/4Ms2V3f.jpg)
 
 The following options have been set as defaults. Check [google](https://developers.google.com/maps/documentation/javascript/tutorial) for a full list of options.
-   
+
       zoom: 13,
       panControl: false,
       zoomControl: false,
@@ -25,7 +25,17 @@ The following options have been set as defaults. Check [google](https://develope
       streetViewControl: false,
       overviewMapControl: false,
       scrollwheel: true
-    
+
+##Multiple Addresses
+
+If you require multiple addresses, pass an array into the address option field:
+
+      $('#foo').prettyMaps({
+          address: ['Melbourne, Australia', 'Richmond Australia'],
+      });
+
+Don't forget to zoom the map out enough to view both markers with the zoom option.
+
 ##Requirements
 
 jQuery
@@ -37,10 +47,10 @@ Load this link in a script tag on your page
 
 http://maps.google.com/maps/api/js?sensor=false
 
-When using the google maps api in production, you'll need to get an API key. 
+When using the google maps api in production, you'll need to get an API key.
 
 Follow the 4 steps (should take about 2 minutes) [here](https://developers.google.com/maps/documentation/javascript/tutorial) to get your api key, and include it in the script parameters like so:
 
       <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY&sensor=false">
-    
+
 That's pretty much it, clone the repo and check examples.html for some live examples
