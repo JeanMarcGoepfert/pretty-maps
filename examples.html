@@ -19,7 +19,7 @@
         $(function(){
             //default
             $('.map-canvas').prettyMaps({
-                address: 'Melbourne, Australia',
+                address: ['Melbourne, Australia', 'Richmond, Australia'],
                 image: 'map-icon.png',
                 hue: '#FF0000',
                 saturation: -20
@@ -33,7 +33,7 @@
             //green map example
             $('#green-map-btn').on('click', function(){
                 $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
+                    address: ['Melbourne, Australia'],
                     image: 'map-icon.png',
                     hue: '#00FF55',
                     saturation: -30
@@ -43,7 +43,6 @@
             //blue map example
             $('#blue-map-btn').on('click', function(){
                 $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
                     image: 'map-icon.png',
                     hue: '#0073FF',
                     saturation: -30,
@@ -57,11 +56,10 @@
                     scrollwheel: false,
                 });
             });
-            
+
             //grey map example
             $('#grey-map-btn').on('click', function(){
                 $('.map-canvas').prettyMaps({
-                    address: 'Melbourne, Australia',
                     image: 'map-icon.png',
                     saturation: -100,
                     lightness: 10

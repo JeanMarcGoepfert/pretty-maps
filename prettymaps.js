@@ -14,8 +14,8 @@
         options = options || {};
 
         this.defaults = {
-            address: 'Melbourne, Australia',
-            zoom: 13,
+            address: ['Melbourne, Australia'],
+            zoom: 12,
             panControl: false,
             zoomControl: false,
             mapTypeControl: false,
@@ -36,6 +36,7 @@
         };
 
         this.options = $.extend({}, this.defaults, options);
+        if( typeof this.options.address === 'string' ) { this.options.address = [ this.options.address ]; }
         this.$el = $(el);
     }
 
@@ -43,16 +44,24 @@
 
         init: function() {
             var that = this,
-                geocoder = new google.maps.Geocoder();
+                geocoder = new google.maps.Geocoder(),
+                locations = [],
+                map;
 
-            geocoder.geocode({
-                'address': this.options.address
-            }, function(results, status) {
-                if ( status === google.maps.GeocoderStatus.OK ) {
-                    var map = that.drawMap(results),
-                        marker = that.placeMarker(map, results);
-                }
-            });
+            for (var i = 0; i < this.options.address.length; i++) {
+                geocoder.geocode({
+                    'address': this.options.address[i]
+                }, function(results, status) {
+                    if ( status === google.maps.GeocoderStatus.OK ) {
+
+                        locations.push(results);
+                        if (locations.length === 1) {
+                            map = that.drawMap(locations[locations.length - 1]);
+                        }
+                        var marker = that.placeMarker(map, results);
+                    }
+                });
+            }
         },
 
         drawMap: function(results) {
